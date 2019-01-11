@@ -30,6 +30,9 @@ public class ProbeInfo extends ElementVertical {
         for (int i = 0 ; i < size ; i++) {
             int id = buf.readInt();
             IElementFactory factory = TheOneProbe.theOneProbeImp.getElementFactory(id);
+            if (factory == null) {
+                throw new NullPointerException("No IElementFactory for ID " + id + "!");
+            }
             IElement element = factory.createElement(buf);
             elements.add(element);
         }

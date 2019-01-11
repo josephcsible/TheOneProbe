@@ -160,6 +160,7 @@ public class TheOneProbeImp implements ITheOneProbe {
 
     @Override
     public int registerElementFactory(IElementFactory factory) {
+        System.out.println("Registering factory ID " + lastId + " as class " + factory.getClass().getName());
         factories.put(lastId, factory);
         int id = lastId;
         lastId++;
